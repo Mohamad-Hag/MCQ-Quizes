@@ -70,7 +70,7 @@ function nextClicked() {
         let nextButton = document.querySelector("#next-btn");
         let parent = o.parentElement;
         nextButton.style.display = "none";
-        parent.style.outline = "dashed lightgreen";
+        parent.style.outline = "4px dashed lightgreen";
         parent.style.animation = "correct-ans-animation .3s infinite ease";
         timeoutDelay = 1000;
       }
