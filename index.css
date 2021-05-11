@@ -6,6 +6,7 @@
     flex-direction: column;
     gap: 30px;
     align-items: center;
+    padding: 0 var(--main-pg);
 }
 #content h1
 {
@@ -33,4 +34,15 @@
 .difficulty-option:hover
 {
     background-color: var(--main-ac-cr);
+}
+@media screen and (max-width: 400px) 
+{
+    :root
+    {
+        --main-pg: 20px !important;   
+    }
+    #content
+    {
+        margin-bottom: 110px;
+    }
 }
