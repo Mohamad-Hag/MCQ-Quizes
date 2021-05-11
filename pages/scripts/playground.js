@@ -127,6 +127,7 @@ function create_Add_Result(score) {
   result.innerHTML = `
   <h1>Thanks for comming! Your score is: </h1>
   <p>${score}%</p>
+  <button class="main-btn" onclick="window.location.reload()">Replay</button>
   `;
   document.body.appendChild(result);
   progress.style.display = "none";
