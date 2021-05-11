@@ -37,6 +37,9 @@
     --medium-fw: 500;
     --semibold-fw: 600;
 
+    /* Paddings */
+    --main-pg: 50px;
+
 }
 body
 {
@@ -58,7 +61,7 @@ img
 }
 header
 {
-    padding: 30px 50px;
+    padding: 30px var(--main-pg);
     box-sizing: border-box;        
 }
 header a

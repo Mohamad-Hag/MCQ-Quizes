@@ -11,6 +11,7 @@
     height: 10px;
     background: var(--main-ac-cr);
     display: none;
+    z-index: 1;
 }
 #progress-value
 {
@@ -29,7 +30,7 @@
 }
 #question-background
 {
-    padding: 0 100px;
+    padding: 0 var(--main-pg);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -123,4 +124,15 @@
     color: var(--main-cr);
     font-weight: var(--medium-fw);
     margin-top: 20px;
+}
+@media screen and (max-width: 400px) 
+{
+    :root
+    {
+        --main-pg: 20px !important;   
+    }
+    #question-background
+    {
+        margin-bottom: 110px;
+    }
 }
