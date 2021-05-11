@@ -37,8 +37,6 @@ function createQuestionTemplate(question, options) {
   selectedOption = null;
   questionBackground.setAttribute("id", "question-background");
   options = shuffle(options);
-  console.log(options);
-  console.log(questions[questionIndex]);
   let optionsHTML = "";
   options = options.map((option, i) => {
     optionsHTML += `
