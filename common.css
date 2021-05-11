@@ -84,7 +84,7 @@ header a span
     padding: 10px 30px;
     font-size: large;
     border: none;    
-    transition: .5s;
+    transition: opacity, transform .5s;
 }
 .main-btn:not(:disabled):hover
 {

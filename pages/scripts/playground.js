@@ -68,8 +68,9 @@ function nextClicked() {
     options_.forEach((o) => {
       if (o.innerText === correctAnswer) {
         let nextButton = document.querySelector("#next-btn");
+        document.querySelector("#options").style.pointerEvents = "none";
         let parent = o.parentElement;
-        nextButton.style.display = "none";
+        nextButton.style.visibility = "hidden";
         parent.style.outline = "4px dashed lightgreen";
         parent.style.animation = "correct-ans-animation .3s infinite ease";
         timeoutDelay = 1000;
