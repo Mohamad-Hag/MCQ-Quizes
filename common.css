@@ -10,6 +10,7 @@
     font-family: var(--hind-ff);    
     outline: none;
     color: var(--main-text-cr);
+    -webkit-tap-highlight-color: transparent;
 }
 :root
 {
