@@ -58,30 +58,44 @@ function createQuestionTemplate(question, options) {
 function nextClicked() {
   if (selectedOption === null) {
     return;
-  }  
+  }
   let correctAnswer = questions[questionIndex - 1].correct_answer;
-  if (selectedOption === correctAnswer)
-  {
-      numberOfCorrects++;
+  let options_ = document.querySelectorAll(".option p");
+  let timeoutDelay = 0;
+  if (selectedOption === correctAnswer) {
+    numberOfCorrects++;
+  } else {
+    options_.forEach((o) => {
+      if (o.innerText === correctAnswer) {
+        let nextButton = document.querySelector("#next-btn");
+        let parent = o.parentElement;
+        nextButton.style.display = "none";
+        parent.style.outline = "dashed lightgreen";
+        parent.style.animation = "correct-ans-animation .3s infinite ease";
+        timeoutDelay = 1000;
+      }
+    });
   }
-  if (questionIndex === questionsAmount) {
-    create_Add_Result(Math.round((numberOfCorrects / questionsAmount) * 100));
-    return;
-  }
-  let currentQuestion = questions[questionIndex];
-  let options = [];
-  let progressValue = document.querySelector("#progress-value");
-  let progressLabel = document.querySelector("#progress label");  
+  setTimeout(() => {
+    if (questionIndex === questionsAmount) {
+      create_Add_Result(Math.round((numberOfCorrects / questionsAmount) * 100));
+      return;
+    }
+    let currentQuestion = questions[questionIndex];
+    let options = [];
+    let progressValue = document.querySelector("#progress-value");
+    let progressLabel = document.querySelector("#progress label");
 
-  options.push(currentQuestion.correct_answer);
-  options = options.concat(currentQuestion.incorrect_answers);
-  addQuestionTemplate(
-    createQuestionTemplate(currentQuestion.question, options)
-  );
-  questionIndex++;
-  progress = Math.round((questionIndex / questionsAmount) * 100);
-  progressValue.style.width = progress + "%";
-  progressLabel.innerText = "Progress: " + progress + "%";
+    options.push(currentQuestion.correct_answer);
+    options = options.concat(currentQuestion.incorrect_answers);
+    addQuestionTemplate(
+      createQuestionTemplate(currentQuestion.question, options)
+    );
+    questionIndex++;
+    progress = Math.round((questionIndex / questionsAmount) * 100);
+    progressValue.style.width = progress + "%";
+    progressLabel.innerText = "Progress: " + progress + "%";
+  }, timeoutDelay);
 }
 function addQuestionTemplate(questionTemplate) {
   let questionBackground = document.querySelector("#question-background");

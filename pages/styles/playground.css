@@ -109,6 +109,13 @@
     transform: scale(0);
     animation: results-animation .4s forwards;
 }
+@keyframes correct-ans-animation 
+{
+    to
+    {
+        outline-color: transparent;
+    }    
+}
 @keyframes results-animation 
 {
     to
