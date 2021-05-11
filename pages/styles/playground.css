@@ -1,0 +1,126 @@
+#body .loader-container
+{
+    margin: 50px auto;
+}
+#progress
+{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: var(--main-ac-cr);
+    display: none;
+}
+#progress-value
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0%;
+    transition: .3s ease-in;
+    background-image: repeating-linear-gradient(45deg, var(--main-cr) 0 5px, hsl(180, 64%, 43%, 50%) 5px 10px);
+}
+#progress label
+{
+    position: absolute;
+    top: -25px;
+    right: 10px;
+}
+#question-background
+{
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(-50px);
+    animation: question-animations .3s forwards;
+}
+@keyframes question-animations 
+{
+    to
+    {
+        opacity: 1;
+        transform: translateY(0);
+    }    
+}
+#question-background h1
+{
+    font-size: x-large;    
+}
+#question-background h1 span
+{
+    color: var(--main-cr);
+}
+#options
+{
+    width: 100%;
+    max-width: 400px;
+}
+.option
+{    
+    padding: 20px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    cursor: pointer;
+}
+.option:hover
+{
+    background-color: var(--main-ac-cr);
+}
+.option label
+{
+    height: 30px;
+    width: 30px;
+    background: var(--main-cr);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.option p
+{
+    
+}
+#seleted-option
+{
+    background-color: var(--main-cr);
+    color: white;
+}
+#seleted-option label
+{
+    background: white;
+    color: var(--main-cr);
+}
+#seleted-option p
+{
+    color: white;
+}
+#result-container 
+{
+    width: fit-content;
+    margin: 50px auto;
+    opacity: 0;
+    transform: scale(0);
+    animation: results-animation .4s forwards;
+}
+@keyframes results-animation 
+{
+    to
+    {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+#result-container p
+{
+    text-align: center;
+    font-size: xxx-large;
+    color: var(--main-cr);
+    font-weight: var(--medium-fw);
+    margin-top: 20px;
+}

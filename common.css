@@ -1,0 +1,116 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500&family=Teko:wght@600&display=swap');
+*
+{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: var(--hind-ff);    
+    outline: none;
+    color: var(--main-text-cr);
+}
+:root
+{
+    /* Colors */
+    /** Primary **/
+    --main-cr: hsl(180, 64%, 43%);
+    --bg-cr: hsla(0, 0%, 93%, 0.322);
+    /** Secondry **/
+
+    /** Accent **/
+    --logo-ac-cr: hsl(0, 0%, 75%);
+    --main-ac-cr: hsl(0, 0%, 93%);
+    --sec-ac-cr: hsl(0, 0%, 80%);
+
+    /** Text **/
+    --main-text-cr: hsl(0, 0%, 30%);
+
+    /* Font Families */
+    --teko-ff: 'Teko', sans-serif;
+    --hind-ff: 'Hind', sans-serif;
+
+    /* Font Weights */
+    --light-fw: 300;
+    --regular-fw: 400;
+    --medium-fw: 500;
+    --semibold-fw: 600;
+
+}
+body
+{
+    background-color: var(--bg-cr);
+}
+::-moz-focus-inner, ::-moz-focus-outer
+{
+    border: none;
+}
+img, button, a, .difficulty-option, .option
+{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+img
+{
+    -webkit-user-drag: none;
+}
+header
+{
+    padding: 30px 50px;
+    box-sizing: border-box;        
+}
+header a
+{
+    font-family: var(--teko-ff);
+    color: var(--logo-ac-cr);
+    font-size: xx-large;
+}
+header a span
+{
+    color: var(--main-cr);
+    font-family: var(--teko-ff);
+}
+.main-btn
+{
+    background-color: var(--main-cr);
+    color: white;
+    border-radius: 3px;
+    padding: 10px 30px;
+    font-size: large;
+    border: none;    
+    transition: .5s;
+}
+.main-btn:not(:disabled):hover
+{
+    transform: translateY(-10px);
+    opacity: 0.8;
+    cursor: pointer;
+}
+.main-btn:disabled
+{
+    background-color: var(--sec-ac-cr);
+}
+.loader-container
+{
+    width: fit-content;
+    width: -moz-fit-content;
+}
+.loader
+{
+    height: 50px;
+    width: 50px;
+    border: 3px solid var(--main-ac-cr);
+    border-radius: 50%;
+    border-top-color: var(--main-cr);
+    border-right-color: var(--main-cr);
+    animation: loader-animation .5s infinite linear;
+}
+@keyframes loader-animation 
+{
+    to
+    {
+        transform: rotate(360deg);
+    }
+}

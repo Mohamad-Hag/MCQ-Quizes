@@ -1,0 +1,36 @@
+#content
+{
+    margin: 50px auto;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+#content h1
+{
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+#difficulty-options
+{
+    
+}
+#difficulty-option-selected
+{
+    color: white;
+    background-color: var(--main-cr);
+}
+.difficulty-option
+{
+    width: 300px;
+    text-align: center;
+    padding: 15px 0;
+    font-size: x-large;    
+    cursor: pointer;
+    background-color: white;
+}
+.difficulty-option:hover
+{
+    background-color: var(--main-ac-cr);
+}
