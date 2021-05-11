@@ -4,11 +4,11 @@
 }
 #progress
 {
-    position: fixed;
-    bottom: 0;
+    position: relative;
+    top: 0;
     left: 0;
     right: 0;
-    height: 10px;
+    height: 20px;
     background: var(--main-ac-cr);
     display: none;
     z-index: 1;
@@ -25,8 +25,14 @@
 #progress label
 {
     position: absolute;
-    top: -25px;
+    top: 50%;
+    transform: translateY(-50%);
     right: 10px;
+    font-size: small;
+    user-select: none;
+    color: hsl(0, 0%, 0%);
+    text-shadow: 0 2px 10px #00000060;
+    -moz-user-select: none;
 }
 #question-background
 {
