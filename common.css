@@ -64,7 +64,23 @@ img
 header
 {
     padding: 30px var(--main-pg);
-    box-sizing: border-box;        
+    box-sizing: border-box;    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;    
+}
+header button
+{
+    height: 50px;
+    width: 50px;
+    font-size: large;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+header button i
+{
+    color: var(--logo-ac-cr);
 }
 header a
 {
