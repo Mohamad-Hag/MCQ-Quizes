@@ -9,7 +9,6 @@
     left: 0;
     right: 0;
     height: 15px;
-    background: var(--main-ac-cr);
     display: none;
     z-index: 1;
 }
@@ -20,7 +19,7 @@
     bottom: 0;
     width: 0%;
     transition: .3s ease-in;
-    background-image: repeating-linear-gradient(45deg, var(--main-cr) 0 5px, hsl(180, 64%, 43%, 50%) 5px 10px);
+    background-image: repeating-linear-gradient(45deg, var(--main-cr) 0 5px, transparent 5px 10px);
 }
 #progress label
 {
@@ -67,7 +66,7 @@
     max-width: 400px;
     box-shadow: 0 0 10px 1px #00000010;
     border-radius: 5px;
-    background: white;
+    background: var(--sec-bg-cr);
 }
 .option
 {    
@@ -102,7 +101,7 @@
     height: 30px;
     width: 30px;
     background: var(--main-cr);
-    color: white;
+    color: var(--sec-bg-cr);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,16 +114,16 @@
 {
     background-image: radial-gradient(circle at center, var(--main-cr) 50%, transparent 50%);
     background-size: 250%;
-    color: white;
+    color: var(--sec-bg-cr);
 }
 #seleted-option label
 {
-    background: white;
+    background: var(--sec-bg-cr);
     color: var(--main-cr);
 }
 #seleted-option p
 {
-    color: white;
+    color: var(--sec-bg-cr);
 }
 #result-container 
 {

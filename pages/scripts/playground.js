@@ -64,6 +64,8 @@ function createQuestionTemplate(question, options) {
 }
 function optionsKeyDown(e)
 {
+  let options = document.querySelector("#options");
+  if (options.style.pointerEvents === "none") return;
   let option = document.querySelectorAll(".option");  
   // Up Arrow
   if (e.keyCode === 38) {
@@ -138,7 +140,7 @@ function nextClicked() {
     progressLabel.innerText = progress + "%";
     if (progress > 90)
     {
-      progressLabel.style.color = "white";
+      progressLabel.style.color = "var(--sec-bg-cr)";
     }
   }, timeoutDelay);
 }
@@ -174,8 +176,9 @@ function create_Add_Result(score) {
   result.innerHTML = `
   <h1>Thanks for comming! Your score is: </h1>
   <p>${score}%</p>
-  <button class="main-btn" onclick="window.location.reload()">Replay <i class="fa fa-undo" aria-hidden="true"></i></button>
+  <button id="replay-btn" class="main-btn" onclick="window.location.reload()">Replay <i class="fa fa-undo" aria-hidden="true"></i></button>
   `;
   document.body.appendChild(result);
   progress.style.display = "none";
+  document.querySelector("#replay-btn").focus();
 }

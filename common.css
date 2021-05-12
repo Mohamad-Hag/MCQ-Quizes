@@ -18,6 +18,7 @@
     /** Primary **/
     --main-cr: hsl(180, 64%, 43%);
     --bg-cr: hsla(0, 0%, 93%, 0.322);
+    --sec-bg-cr: hsla(0, 0%, 100%);
     /** Secondry **/
 
     /** Accent **/
@@ -79,7 +80,7 @@ header a span
 .main-btn
 {
     background-color: var(--main-cr);
-    color: white;
+    color: var(--sec-bg-cr);
     border-radius: 3px;
     padding: 10px 30px;
     font-size: large;
@@ -92,7 +93,7 @@ header a span
 }
 .main-btn i
 {
-    color: white;
+    color: var(--sec-bg-cr);
     font-size: medium;
 }
 .main-btn:not(:disabled):hover
