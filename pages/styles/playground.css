@@ -115,6 +115,10 @@
     transform: scale(0);
     text-align: center;
     animation: results-animation .4s forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 @keyframes correct-ans-animation 
 {

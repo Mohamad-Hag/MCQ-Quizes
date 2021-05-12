@@ -85,6 +85,15 @@ header a span
     font-size: large;
     border: none;    
     transition: opacity, transform .5s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+.main-btn i
+{
+    color: white;
+    font-size: medium;
 }
 .main-btn:not(:disabled):hover
 {

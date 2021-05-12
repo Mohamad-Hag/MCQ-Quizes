@@ -57,7 +57,7 @@ function createQuestionTemplate(question, options) {
     <div id="options">
     ${optionsHTML}        
     </div>
-    <button id="next-btn" class="main-btn" onclick="nextClicked()" disabled>Next Question</button>
+    <button id="next-btn" class="main-btn" onclick="nextClicked()" disabled>Next Question <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
     `;
   return questionBackground;
 }
@@ -102,6 +102,10 @@ function nextClicked() {
     progress = Math.round((questionIndex / questionsAmount) * 100);
     progressValue.style.width = progress + "%";
     progressLabel.innerText = progress + "%";
+    if (progress > 90)
+    {
+      progressLabel.style.color = "white";
+    }
   }, timeoutDelay);
 }
 function addQuestionTemplate(questionTemplate) {
@@ -133,7 +137,7 @@ function create_Add_Result(score) {
   result.innerHTML = `
   <h1>Thanks for comming! Your score is: </h1>
   <p>${score}%</p>
-  <button class="main-btn" onclick="window.location.reload()">Replay</button>
+  <button class="main-btn" onclick="window.location.reload()">Replay <i class="fa fa-undo" aria-hidden="true"></i></button>
   `;
   document.body.appendChild(result);
   progress.style.display = "none";

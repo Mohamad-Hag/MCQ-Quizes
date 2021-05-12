@@ -10,6 +10,14 @@
     <link rel="stylesheet" type="text/css" href="./index.css" />
     <link rel="stylesheet" type="text/css" href="./common.css" />
 
+    <!-- Fontawesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+
     <!-- Main Script -->
     <script type="text/javascript" src="./index.js"></script>
     <script type="text/javascript" src="./common.js"></script>
@@ -21,11 +29,21 @@
     <div id="content">
       <h1>Select the difficulty</h1>
       <div id="difficulty-options">
-          <div id="difficulty-option-selected" class="difficulty-option" onclick="difficultyOptionClicked(this)">Easy</div>
-          <div class="difficulty-option" onclick="difficultyOptionClicked(this)">Medium</div>
-          <div class="difficulty-option" onclick="difficultyOptionClicked(this)">Hard</div>
+        <div
+          id="difficulty-option-selected"
+          class="difficulty-option"
+          onclick="difficultyOptionClicked(this)"
+        >
+          Easy
+        </div>
+        <div class="difficulty-option" onclick="difficultyOptionClicked(this)">
+          Medium
+        </div>
+        <div class="difficulty-option" onclick="difficultyOptionClicked(this)">
+          Hard
+        </div>
       </div>
-      <button class="main-btn" onclick="goToPlayground()">Start Quiz</button>
+      <button class="main-btn" onclick="goToPlayground()">Start Quiz <i class="fa fa-chevron-circle-right"></i></button>
     </div>
   </body>
 </html>
