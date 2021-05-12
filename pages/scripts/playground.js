@@ -4,7 +4,7 @@ let difficulty = urlParams.get("difficulty");
 let questions = [];
 let questionIndex = 0;
 let selectedOption = null;
-let questionsAmount = 20;
+let questionsAmount = 2;
 let progress = 0;
 let numberOfCorrects = 0;
 let currentSelectedIndex = -1;
@@ -184,8 +184,9 @@ function create_Add_Result(score) {
   let newLabel = document.querySelector("#new-lb");
   
   if (highScore === null) {
-    highScore = 0;
+    highScore = score;
     localStorage.setItem("highScore", highScore.toString());
+    newLabel.style.display = "inline-block";
   } else {
     if (parseInt(highScore) < score) {
       highScore = score;
