@@ -78,7 +78,7 @@
     cursor: pointer;
     background-image: radial-gradient(circle at center, transparent 50%, transparent 50%);
     background-size: 10%;
-    transition: background-size .25s ease-in-out;
+    transition: background-size .25s ease-out;
     background-repeat: no-repeat;
     background-position: center;
     
