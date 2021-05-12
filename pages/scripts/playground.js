@@ -171,7 +171,7 @@ function create_Add_Result(score) {
   
   result.setAttribute("id", "result-container");
   result.innerHTML = `
-  <h1>Thanks for comming! Your score is</h1>
+  <h1>Your score is</h1>
   <p>${score}%</p>  
   <div id="seperator"></div>
   <h1>Best score<label id="new-lb">new</label></h1>
