@@ -95,7 +95,7 @@ function nextClicked() {
     questionIndex++;
     progress = Math.round((questionIndex / questionsAmount) * 100);
     progressValue.style.width = progress + "%";
-    progressLabel.innerText = "Progress: " + progress + "%";
+    progressLabel.innerText = progress + "%";
   }, timeoutDelay);
 }
 function addQuestionTemplate(questionTemplate) {
