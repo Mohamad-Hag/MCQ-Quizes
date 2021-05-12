@@ -7,6 +7,7 @@ let selectedOption = null;
 let questionsAmount = 20;
 let progress = 0;
 let numberOfCorrects = 0;
+let currentSelectedIndex = -1;
 
 function getQuestions() {
   fetch(
@@ -54,12 +55,45 @@ function createQuestionTemplate(question, options) {
   });
   questionBackground.innerHTML = `
     <h1 id="question"><span>${questionIndex + 1}.</span> ${question}</h1>    
-    <div id="options">
+    <div id="options" tabindex="0" onkeydown="optionsKeyDown(event)">
     ${optionsHTML}        
     </div>
     <button id="next-btn" class="main-btn" onclick="nextClicked()" disabled>Next Question <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
     `;
   return questionBackground;
+}
+function optionsKeyDown(e)
+{
+  let option = document.querySelectorAll(".option");  
+  // Up Arrow
+  if (e.keyCode === 38) {
+    if (currentSelectedIndex > 0)
+    {      
+      currentSelectedIndex--;
+      optionClicked(option[currentSelectedIndex]);      
+    }
+    else
+    {
+      optionClicked(option[3]);
+    }    
+  }
+  // Down Arrow
+  else if (e.keyCode === 40) {
+    if (currentSelectedIndex < 3)
+    {
+      currentSelectedIndex++;
+      optionClicked(option[currentSelectedIndex]);
+    }
+    else
+    {
+      optionClicked(option[0]);
+    }
+  }
+  // Enter Key
+  else if (e.keyCode === 13)
+  {    
+    nextClicked();
+  }
 }
 function nextClicked() {
   if (selectedOption === null) {
@@ -109,9 +143,11 @@ function nextClicked() {
   }, timeoutDelay);
 }
 function addQuestionTemplate(questionTemplate) {
-  let questionBackground = document.querySelector("#question-background");
+  let questionBackground = document.querySelector("#question-background");  
   if (questionBackground !== null) questionBackground.remove();
   document.body.appendChild(questionTemplate);
+  document.querySelector("#options").focus();
+  currentSelectedIndex = -1;
 }
 function shuffle(array) {
   return array.sort(() => {
@@ -122,8 +158,9 @@ function optionClicked(e) {
   let options = document.querySelectorAll(".option");
   let nextButton = document.querySelector("#next-btn");
   nextButton.removeAttribute("disabled");
-  options.forEach((option) => {
+  options.forEach((option, i) => {
     option.removeAttribute("id");
+    if (option === e) currentSelectedIndex = i;
   });
   e.setAttribute("id", "seleted-option");
   selectedOption = e.querySelector("p").innerText;

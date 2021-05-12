@@ -97,7 +97,7 @@ header a span
 }
 .main-btn:not(:disabled):hover
 {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     opacity: 0.8;
     cursor: pointer;
 }
