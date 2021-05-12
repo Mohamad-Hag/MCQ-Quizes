@@ -28,6 +28,12 @@ function getQuestions() {
       );
       questionIndex++;
     });
+  }).catch((error) => {
+    document.body.innerHTML = `
+    <p style="color: red; font-size: xx-large;text-align: center;margin-top: 50px;padding: 0 20px;">
+    ${error}
+    </p>
+    `;
   });
 }
 getQuestions();
