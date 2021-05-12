@@ -65,15 +65,27 @@
 {
     width: 100%;
     max-width: 400px;
+    box-shadow: 0 0 10px 1px #00000010;
+    border-radius: 5px;
+    background: white;
 }
 .option
 {    
     padding: 20px 20px;
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: white;
+    gap: 10px;    
     cursor: pointer;
+}
+.option:nth-child(1), .option:nth-child(1):hover
+{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.option:nth-child(4), .option:nth-child(4):hover
+{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .option:hover
 {

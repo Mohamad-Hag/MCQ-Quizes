@@ -16,7 +16,9 @@
 }
 #difficulty-options
 {
-    
+    box-shadow: 0 0 10px 1px #00000010;
+    border-radius: 5px;    
+    background: white;
 }
 #difficulty-option-selected
 {
@@ -29,8 +31,17 @@
     text-align: center;
     padding: 15px 0;
     font-size: x-large;    
-    cursor: pointer;
-    background-color: white;
+    cursor: pointer;    
+}
+.difficulty-option:nth-child(1), .difficulty-option:nth-child(1):hover
+{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.difficulty-option:nth-child(3), .difficulty-option:nth-child(3):hover
+{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .difficulty-option:hover
 {
