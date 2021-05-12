@@ -1,8 +1,8 @@
 let difficulty = "easy";
 let currentSelectedIndex = 0;
 
-window.onload = () => {
-  document.querySelector("#difficulty-options").focus();
+window.onload = () => {  
+  document.querySelector("#difficulty-options").focus();  
 };
 
 function goToPlayground() {

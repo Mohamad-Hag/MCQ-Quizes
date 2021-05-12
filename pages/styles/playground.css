@@ -156,6 +156,27 @@
 #result-container h1
 {
     text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+}
+#seperator
+{
+    height: 1px;
+    background-color: var(--sec-ac-cr);    
+    margin: 25px 0;
+    width: 50%;
+}
+#result-container h1 label
+{
+    padding: 2px 5px;    
+    border-radius: 2px;
+    font-size: x-small;
+    font-weight: lighter;
+    background: var(--main-cr);    
+    color: var(--sec-bg-cr);
+    display: none;
 }
 #result-container p
 {

@@ -10,41 +10,39 @@ let numberOfCorrects = 0;
 let currentSelectedIndex = -1;
 
 window.onbeforeunload = () => {
-  if (
-    questionIndex === 0 |
-    questionIndex === 1
-  )
-    return;
-  return "Data will be lost if you leave the page, are you sure?";
+  if ((questionIndex === 0) | (questionIndex === 1)) return;
+  return "";
 };
 
 function getQuestions() {
   fetch(
     `https://opentdb.com/api.php?amount=${questionsAmount}&category=9&type=multiple&difficulty=${difficulty}`
-  ).then((response) => {
-    let loader = document.querySelector(".loader-container");
-    let progress = document.querySelector("#progress");
-    response.json().then((results) => {
-      let questions_ = results.results;
-      let options = [];
-      questions = questions_;
-      let currentQuestion = questions[questionIndex];
-      options.push(currentQuestion.correct_answer);
-      options = options.concat(currentQuestion.incorrect_answers);
-      loader.style.display = "none";
-      progress.style.display = "block";
-      addQuestionTemplate(
-        createQuestionTemplate(currentQuestion.question, options)
-      );
-      questionIndex++;
-    });
-  }).catch((error) => {
-    document.body.innerHTML = `
+  )
+    .then((response) => {
+      let loader = document.querySelector(".loader-container");
+      let progress = document.querySelector("#progress");
+      response.json().then((results) => {
+        let questions_ = results.results;
+        let options = [];
+        questions = questions_;
+        let currentQuestion = questions[questionIndex];
+        options.push(currentQuestion.correct_answer);
+        options = options.concat(currentQuestion.incorrect_answers);
+        loader.style.display = "none";
+        progress.style.display = "block";
+        addQuestionTemplate(
+          createQuestionTemplate(currentQuestion.question, options)
+        );
+        questionIndex++;
+      });
+    })
+    .catch((error) => {
+      document.body.innerHTML = `
     <p style="color: red; font-size: xx-large;text-align: center;margin-top: 50px;padding: 0 20px;">
     ${error}
     </p>
     `;
-  });
+    });
 }
 getQuestions();
 function createQuestionTemplate(question, options) {
@@ -71,38 +69,30 @@ function createQuestionTemplate(question, options) {
     `;
   return questionBackground;
 }
-function optionsKeyDown(e)
-{
+function optionsKeyDown(e) {
   let options = document.querySelector("#options");
   if (options.style.pointerEvents === "none") return;
-  let option = document.querySelectorAll(".option");  
+  let option = document.querySelectorAll(".option");
   // Up Arrow
   if (e.keyCode === 38) {
-    if (currentSelectedIndex > 0)
-    {      
+    if (currentSelectedIndex > 0) {
       currentSelectedIndex--;
-      optionClicked(option[currentSelectedIndex]);      
-    }
-    else
-    {
+      optionClicked(option[currentSelectedIndex]);
+    } else {
       optionClicked(option[3]);
-    }    
+    }
   }
   // Down Arrow
   else if (e.keyCode === 40) {
-    if (currentSelectedIndex < 3)
-    {
+    if (currentSelectedIndex < 3) {
       currentSelectedIndex++;
       optionClicked(option[currentSelectedIndex]);
-    }
-    else
-    {
+    } else {
       optionClicked(option[0]);
     }
   }
   // Enter Key
-  else if (e.keyCode === 13)
-  {    
+  else if (e.keyCode === 13) {
     nextClicked();
   }
 }
@@ -150,7 +140,7 @@ function nextClicked() {
   }, timeoutDelay);
 }
 function addQuestionTemplate(questionTemplate) {
-  let questionBackground = document.querySelector("#question-background");  
+  let questionBackground = document.querySelector("#question-background");
   if (questionBackground !== null) questionBackground.remove();
   document.body.appendChild(questionTemplate);
   document.querySelector("#options").focus();
@@ -177,14 +167,35 @@ function create_Add_Result(score) {
   let progress = document.querySelector("#progress");
   if (questionBackground !== null) questionBackground.remove();
   let result = document.createElement("div");
+  let highScore = localStorage.getItem("highScore");
+  
   result.setAttribute("id", "result-container");
   result.innerHTML = `
-  <h1>Thanks for comming! Your score is: </h1>
-  <p>${score}%</p>
+  <h1>Thanks for comming! Your score is</h1>
+  <p>${score}%</p>  
+  <div id="seperator"></div>
+  <h1>Best score<label id="new-lb">new</label></h1>
+  <p id="high-score"></p>
   <button id="replay-btn" class="main-btn" onclick="window.location.reload()">Replay <i class="fa fa-undo" aria-hidden="true"></i></button>
   `;
   document.body.appendChild(result);
   progress.style.display = "none";
+
+  let newLabel = document.querySelector("#new-lb");
+  
+  if (highScore === null) {
+    highScore = 0;
+    localStorage.setItem("highScore", highScore.toString());
+  } else {
+    if (parseInt(highScore) < score) {
+      highScore = score;
+      localStorage.setItem("highScore", score.toString());
+      newLabel.style.display = "inline-block";
+    }    
+  }
+  let hs = document.querySelector("#high-score");
+  hs.innerText = `${highScore}%`;
+
   document.querySelector("#replay-btn").focus();
   questionIndex = 0;
 }
