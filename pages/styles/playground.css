@@ -76,6 +76,12 @@
     align-items: center;
     gap: 10px;    
     cursor: pointer;
+    background-image: radial-gradient(circle at center, transparent 50%, transparent 50%);
+    background-size: 10%;
+    transition: background-size .25s ease-in-out;
+    background-repeat: no-repeat;
+    background-position: center;
+    
 }
 .option:nth-child(1), .option:nth-child(1):hover
 {
@@ -107,7 +113,8 @@
 }
 #seleted-option
 {
-    background-color: var(--main-cr);
+    background-image: radial-gradient(circle at center, var(--main-cr) 50%, transparent 50%);
+    background-size: 250%;
     color: white;
 }
 #seleted-option label
