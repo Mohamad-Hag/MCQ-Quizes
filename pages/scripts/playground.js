@@ -9,6 +9,15 @@ let progress = 0;
 let numberOfCorrects = 0;
 let currentSelectedIndex = -1;
 
+window.onbeforeunload = () => {
+  if (
+    questionIndex === 0 |
+    questionIndex === 1
+  )
+    return;
+  return "Data will be lost if you leave the page, are you sure?";
+};
+
 function getQuestions() {
   fetch(
     `https://opentdb.com/api.php?amount=${questionsAmount}&category=9&type=multiple&difficulty=${difficulty}`
@@ -138,10 +147,6 @@ function nextClicked() {
     progress = Math.round((questionIndex / questionsAmount) * 100);
     progressValue.style.width = progress + "%";
     progressLabel.innerText = progress + "%";
-    if (progress > 90)
-    {
-      progressLabel.style.color = "var(--sec-bg-cr)";
-    }
   }, timeoutDelay);
 }
 function addQuestionTemplate(questionTemplate) {
@@ -181,4 +186,5 @@ function create_Add_Result(score) {
   document.body.appendChild(result);
   progress.style.display = "none";
   document.querySelector("#replay-btn").focus();
+  questionIndex = 0;
 }
